@@ -19,7 +19,6 @@ contract ZombieFactory {
 
     function _createZombie(string memory _name, uint _dna) private {
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
-        // start here
         zombieToOwner[id] = msg.sender;
         ownerZombieCount[msg.sender]++;
         emit NewZombie(id, _name, _dna);
@@ -31,6 +30,8 @@ contract ZombieFactory {
     }
 
     function createRandomZombie(string memory _name) public {
+        // start here
+        require( ownerZombieCount[msg.sender] == 0 );
         uint randDna = _generateRandomDna(_name);
         _createZombie(_name, randDna);
     }
