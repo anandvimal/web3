@@ -37,7 +37,3 @@ contract ZombieFactory {
 
 }
 
-// Start here
-contract ZombieFeeding is ZombieFactory {
-    
-}
