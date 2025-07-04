@@ -27,7 +27,7 @@ contract ZombieFeeding is ZombieFactory {
     _;
   }
 
-  function setKittyContractAddress(address _address) external onlyOwnerOf {
+  function setKittyContractAddress(address _address) external onlyOwner {
     kittyContract = KittyInterface(_address);
   }
 
@@ -40,7 +40,7 @@ contract ZombieFeeding is ZombieFactory {
   }
 
   // 2. Change modifier name here as well
-  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal ownerOf(_zombieId) {
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal onlyOwnerOf(_zombieId) {
     Zombie storage myZombie = zombies[_zombieId];
     require(_isReady(myZombie));
     _targetDna = _targetDna % dnaModulus;
