@@ -6,15 +6,20 @@ import "./erc721.sol";
 contract ZombieOwnership is ZombieAttack, ERC721 {
 
   function balanceOf(address _owner) external view returns (uint256) {
-    // 1. Return the number of zombies `_owner` has here
-    //return getZombiesByOwner(_owner);
     return ownerZombieCount[_owner];
-
   }
 
   function ownerOf(uint256 _tokenId) external view returns (address) {
-    // 2. Return the owner of `_tokenId` here
     return zombieToOwner[_tokenId];
+  }
+
+  // Define _transfer() here
+  function _transfer(address _from, address _to, uint256 _tokenId) private{
+      ownerZombieCount[_to]++;
+      ownerZombieCount[_from]--;
+      zombieToOwner[_tokenId] = _to;
+      // fire transfer event // event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
+      emit Transfer(_from, _to, _tokenId);
   }
 
   function transferFrom(address _from, address _to, uint256 _tokenId) external payable {
