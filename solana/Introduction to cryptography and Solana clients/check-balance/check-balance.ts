@@ -1,9 +1,16 @@
 import { Connection, LAMPORTS_PER_SOL, PublicKey} from "@solana/web3.js";
 
-const publicKey = new PublicKey("DZiqa7he7jxc647PrgVxawA1L2GeJ74b8gHavaswhfGp");
+
+const suppliedPublicKey = process.argv[2];
+if (!suppliedPublicKey) {
+  throw new Error("Provide a public key to check the balance of!");
+}
+// const publicKey = new PublicKey("DZiqa7he7jxc647PrgVxawA1L2GeJ74b8gHavaswhfGp");
+const publicKey = new PublicKey(suppliedPublicKey);
 
 const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 
+// const balanceInLamports = await connection.getBalance(publicKey);
 const balanceInLamports = await connection.getBalance(publicKey);
 
 const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
