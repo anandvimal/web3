@@ -1,0 +1,5 @@
+npx esrun transfer.ts "DZiqa7he7jxc647PrgVxawA1L2GeJ74b8gHavaswhfGp"
+suppliedToPubkey : DZiqa7he7jxc647PrgVxawA1L2GeJ74b8gHavaswhfGp
+✅ Loaded our own keypair, the destination public key, and connected to Solana
+💸 Finished! Sent 5000 to the address DZiqa7he7jxc647PrgVxawA1L2GeJ74b8gHavaswhfGp. 
+Transcation signature is mHpVgSr6s7tk4ppXCd2vmGBTtYUEJiZGLtpxv1RA6kAjWZvvdWdK1UfK2qApWneLHQq78UWyQXFbBVbjQeqbQ8A
