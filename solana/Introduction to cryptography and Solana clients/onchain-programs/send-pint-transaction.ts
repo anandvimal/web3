@@ -44,3 +44,4 @@ const signature = await web3.sendAndConfirmTransaction(
 console.log(`✅ Transaction sent: ${signature}`);
 
 // npx esrun send-ping-transaction.ts
+// ✅ Transaction sent: 2qjpFA9LhgiphWkQrdZWtrvEyXRTEPCcDGXckLXAdfGFFHmx1C3gYsJXkEtCgWidjKcZQB4XZVxLa4RLxU6AZFvV
