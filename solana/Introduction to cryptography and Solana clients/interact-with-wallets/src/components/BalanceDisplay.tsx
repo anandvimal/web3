@@ -41,7 +41,7 @@ export const BalanceDisplay: FC = () => {
   }, [connection, publicKey]);
 
   return (
-    <div>
+    <div className="mt-4">
       <p>{publicKey ? `Balance: ${balance} SOL` : 'Wallet not connected'}</p>
     </div>
   );

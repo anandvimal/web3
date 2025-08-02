@@ -1,18 +1,16 @@
 'use client';
 
 import { FC } from 'react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { AppBar } from '@/components/AppBar';
 import { BalanceDisplay } from '@/components/BalanceDisplay';
 import { SendSolForm } from '@/components/SendSolForm';
 import { PingButton } from '@/components/PingButton';
-import styles from './Home.module.css';
 
 const Home: FC = () => {
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white">
       <AppBar />
-      <div className={styles.body}>
+      <div className="flex flex-col items-center justify-center flex-grow space-y-4">
         <BalanceDisplay />
         <SendSolForm />
         <PingButton />
