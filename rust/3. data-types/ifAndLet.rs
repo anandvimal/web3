@@ -1,5 +1,5 @@
 fn main(){
     let condition = true; 
     let number = if condition {5} else {6};
-    println("the Value of number is : {number}")
+    println!("the Value of number is : {number}");
 }
