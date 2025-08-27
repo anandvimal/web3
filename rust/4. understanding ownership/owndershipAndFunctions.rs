@@ -3,7 +3,7 @@ fn main() {
 	
     println!("s: {s}");
     takes_ownership(s);             // s's value moves into the function...
-                   	             // ... and so is no longer valid here
+                   	             // ... and s is no longer valid here
 
     //println!("s: {s}"); //this just wont work now!
     let x = 5;                      // x comes into scope
