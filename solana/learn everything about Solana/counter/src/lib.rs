@@ -49,5 +49,5 @@ pub fn process_instruction(
     }
 
     counter_account.serialize(&mut &mut account.data.borrow_mut()[..])?;
-    ok(())
+    Ok(())
 }
