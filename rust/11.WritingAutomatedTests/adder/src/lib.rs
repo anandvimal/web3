@@ -20,7 +20,6 @@ impl Guess{
         if value < 1 || value > 100 {
             panic!("Guess value must be between 1 and 100, got {value}.")
         }
-
         Guess { value }
     }
 }
@@ -51,7 +50,6 @@ mod tests {
             width: 5,
             height: 1,
         };
-
         assert!(larger.can_hold(&smaller));
     }
 
@@ -101,8 +99,6 @@ mod tests {
     fn zero(){
         Guess::new(0)
     }
-
-
 
     // #[test]
     // fn another(){
