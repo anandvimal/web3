@@ -97,7 +97,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn zero(){
-        Guess::new(0)
+        Guess::new(0);
     }
 
     // #[test]
