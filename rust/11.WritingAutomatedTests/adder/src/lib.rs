@@ -36,9 +36,28 @@ impl Rectangle {
     }
 }
 
+fn prints_and_returns_10(a: i32) -> i32 {
+    println!("I got the value {a}");
+    10
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test] // no output from from actual function prints_and_returns_10 as test passed.
+    fn this_test_will_pass(){
+        let value = prints_and_returns_10(4);
+        assert_eq!(value, 10);
+    }
+
+    // ---- tests::this_test_will_fail stdout ----
+    // I got the value 11
+    #[test] // this test will fail and print statement from source function will be printed 
+    fn this_test_will_fail(){
+        let value = prints_and_returns_10(11);
+        assert_eq!(value, 11)
+    }
 
     #[test]
     fn it_works()-> Result<(), String>{
