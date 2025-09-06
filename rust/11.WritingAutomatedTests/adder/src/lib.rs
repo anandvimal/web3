@@ -90,6 +90,20 @@ mod tests {
         );
     }
 
+    #[test]
+    #[should_panic]
+    fn greater_than_100(){
+        Guess::new(200);
+    }
+
+    #[test]
+    #[should_panic]
+    fn zero(){
+        Guess::new(0)
+    }
+
+
+
     // #[test]
     // fn another(){
     //     panic!("Make this test fail");
