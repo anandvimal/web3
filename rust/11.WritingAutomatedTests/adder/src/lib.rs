@@ -7,8 +7,8 @@ pub fn add_two(a: u64) -> u64{
 }
 
 pub fn greeting(name: &str) -> String {
-    //format!("Hello {name}!")
-    String::from("Hello")
+    format!("Hello {name}!")
+    //String::from("Hello")  //to test fail message use this
 }
 
 
