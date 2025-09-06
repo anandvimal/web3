@@ -89,7 +89,7 @@ mod tests {
     }
 
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "between 1 and 100")] //panic should have this expected string. lese its a panic but not a good one.
     fn greater_than_100(){
         Guess::new(200);
     }
