@@ -67,6 +67,11 @@ mod tests {
         assert_eq!(result, 4);
     }
 
+    fn greeting_contains_name(){
+        let result = greeting("Carol");
+        assert!(result.contains("Carol"));
+    }
+
     // #[test]
     // fn another(){
     //     panic!("Make this test fail");
