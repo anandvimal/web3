@@ -6,6 +6,11 @@ pub fn add_two(a: u64) -> u64{
     a+2
 }
 
+pub fn greeting(name: &str) -> String {
+    format!("Hello {name}!")
+}
+
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
