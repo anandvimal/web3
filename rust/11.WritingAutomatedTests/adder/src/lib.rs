@@ -33,6 +33,20 @@ mod tests {
     }
 
     #[test]
+    fn smaller_cannot_hold_larger(){
+        let larger = Rectangle{
+            width: 8,
+            height: 7,
+        };
+        let smaller = Rectangle {
+            width: 5,
+            height: 1,
+        };
+
+        assert!(!smaller.can_hold(&larger));
+    }
+
+    #[test]
     fn exploration() {
         let result = add(2, 2);
         assert_eq!(result, 4);
