@@ -4,9 +4,8 @@ use std::fs;
 fn main() {
     let args: Vec<String> = env::args().collect();
     dbg!(&args);
-    
-    let query = &args[1];
-    let file_path = &args[2];
+
+    let (query, file_path) = parse_config(&args);
 
     println!("Searching for : {query}");
     println!("In file : {file_path}");
