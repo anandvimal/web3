@@ -6,7 +6,6 @@ use minigrep::search;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    //dbg!(&args);
 
     let config = Config::build(&args).unwrap_or_else(|err| {
         println!("Problem parsing arguments: {err}");
@@ -20,9 +19,7 @@ fn main() {
         println!("Application error: {e}");
         process::exit(1);
     }
-    
 }
-
 
 struct Config {
     query: String,
