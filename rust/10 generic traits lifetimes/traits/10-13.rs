@@ -35,6 +35,10 @@ impl Summary for SocialPost {
     }
 }
 
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+
 fn main() {
     let article = NewsArticle {
         headline: String::from("Penguins win the Stanley Cup Championship!"),
@@ -52,4 +56,7 @@ fn main() {
 
     println!("New article available! {}", article.summarize());
     println!("New post: {}", post.summarize());
+
+    notify(&article);
+    notify(&post);
 }
