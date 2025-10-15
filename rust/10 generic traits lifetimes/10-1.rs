@@ -10,5 +10,6 @@ fn main(){
     }
 
     println!("the largest number is {largest}");
+    assert_eq!(*largest, 100);
 
 }
