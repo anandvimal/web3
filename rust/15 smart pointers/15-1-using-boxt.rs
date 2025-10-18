@@ -5,7 +5,8 @@ fn main(){
     let c = Box::new("hello");
     println!("c = {c}");
 
-
+    let d = Box::new(3.14);
+    println!("d = {d}");
 
 
 }
