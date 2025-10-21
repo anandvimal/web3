@@ -9,5 +9,15 @@ impl<T> MyBox<T> {
     }
 }
 
-fn main() {}
+fn main() {
+    let x = 5;
+    let y = MyBox::new(x); // y is a MyBox pointing to x
+
+    println!("x = {}, y = {}", x, y.0); // Accessing the value inside MyBox directly
+    println!("y points to {}", *y); // dereferencing y to get the value 
+
+    assert_eq!(5, x);
+    assert_eq!(5, *y); //error: could not compile `deref-example`
+
+}
 
