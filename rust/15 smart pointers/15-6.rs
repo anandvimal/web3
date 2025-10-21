@@ -8,4 +8,6 @@ fn main() {
 
     assert_eq!(5, x);
     //assert_eq!(5, y); // fails without dereferencing
+    assert_eq!(5, *y); // works with dereferencing
+
     }
