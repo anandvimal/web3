@@ -1,5 +1,5 @@
 use std::sync::mpsc;
-// mpsc stands for multiple producer, single consumer!.
+use std::thread;
 
 fn main() {
     let (tx, rx) = mpsc::channel();
@@ -9,4 +9,3 @@ fn main() {
         tx.send(val).unwrap();
     });
 }
-
