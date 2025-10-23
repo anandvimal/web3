@@ -11,10 +11,12 @@ fn main() {
         }
     });
 
+    handle.join().unwrap(); // Wait for the spawned thread to finish
+
     for i in 1..5 {
         println!("hi number {i} from the main thread!");
         thread::sleep(Duration::from_millis(1));
     }
 
-    handle.join().unwrap(); // Wait for the spawned thread to finish
+    //handle.join().unwrap(); // Wait for the spawned thread to finish
 }
