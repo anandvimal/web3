@@ -4,7 +4,8 @@ use std::time::Duration;
 
 fn main() {
     let (tx, rx) = mpsc::channel();
-    let tx1 = tx.clone();
+    let tx1 = tx.clone(); // Create another transmitter by cloning the first one. 
+    // Now we have two transmitters: tx and tx1. use tx1 in one thread and tx in another.
 
     thread::spawn(move || {
         let vals = vec![
