@@ -10,9 +10,12 @@ async fn page_title(url: &str) -> Option<String> {
 // this fails to compile because main is not async
 fn main() {
     let args: Vec<String> = std::env::args().collect();
-    let url = &args[1];
-    march page_title(url) {
-        Some(title) => println!("The title for {url} is {title}"),
-        None => println!("{url} had no title"),
-    }
+
+    trpl::run(async {
+        let url = &args[1];
+        match page_title(url).await {
+            Some(title) => println!("The title for {url} is {title}"),
+            None => println!("{url} had no title"),
+        }
+    })
 }
