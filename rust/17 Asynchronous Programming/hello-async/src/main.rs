@@ -4,9 +4,10 @@ use std::time::Duration;
 
 fn main() {
     trpl::run(async {
-        let (tx, mut rx) = trpl::channel();
+        let (tx1, mut rx) = trpl::channel();
+        let tx2 = tx1.clone();
 
-        let tx_fut = async move {
+        let tx1_fut = async move {
             let vals = vec![
                 String::from("hi"),
                 String::from("from"),
@@ -15,7 +16,7 @@ fn main() {
             ];
 
             for val in vals {
-                tx.send(val).unwrap();
+                tx1.send(val).unwrap();
                 trpl::sleep(Duration::from_millis(500)).await;
             }
 
@@ -27,9 +28,23 @@ fn main() {
             }
         };
 
-        trpl::join(tx_fut, rx_fut).await;
+        let tx2_fut = async move {
+            let vals = vec![
+                String::from("more"),
+                String::from("messages"),
+                String::from("for"),
+                String::from("you"),
+            ];
+
+            for val in vals {
+                tx2.send(val).unwrap();
+                trpl::sleep(Duration::from_millis(1500)).await;
+            }
+        };
+
+        trpl::join3(tx1_fut, tx2_fut, rx_fut).await;
     });
 }
 
-// In Listing 17-12, we change the block used to send messages from async to async move. 
-// When we run this version of the code, it shuts down gracefully after the last message is sent and received.
+// In Listing 17-13, 
+// The key is the order in which the futures are awaited, not in which they’re created.
