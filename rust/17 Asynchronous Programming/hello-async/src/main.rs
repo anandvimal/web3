@@ -11,13 +11,10 @@ fn main() {
             }
         };
 
-
         for i in 1..5 {
             println!("hi number {i} from second task!");
             trpl::sleep(Duration::from_millis(500)).await;
         }   
-
-
 
         //fut2.await;        
         fut1.await;
