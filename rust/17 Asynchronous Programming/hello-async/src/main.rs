@@ -6,17 +6,19 @@ fn main() {
     trpl::run(async {
         let (tx, mut rx) = trpl::channel();
 
-        let tx_fut = async {
+        let tx_fut = async move {
             let vals = vec![
                 String::from("hi"),
                 String::from("from"),
                 String::from("the"),
                 String::from("future"),
             ];
+
             for val in vals {
                 tx.send(val).unwrap();
                 trpl::sleep(Duration::from_millis(500)).await;
             }
+
         };
 
         let rx_fut = async {
@@ -29,5 +31,5 @@ fn main() {
     });
 }
 
-// listing 17-11
-// Separating send and recv into their own async blocks and awaiting the futures for those blocks
+// In Listing 17-12, we change the block used to send messages from async to async move. 
+// When we run this version of the code, it shuts down gracefully after the last message is sent and received.
