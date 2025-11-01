@@ -6,24 +6,28 @@ fn main() {
     trpl::run(async {
         let (tx, mut rx) = trpl::channel();
 
-        let vals = vec![
-            String::from("hi"),
-            String::from("from"),
-            String::from("the"),
-            String::from("async"),
-            String::from("world!"),
-        ];
+        let tx_fut = async {
+            let vals = vec![
+                String::from("hi"),
+                String::from("from"),
+                String::from("the"),
+                String::from("future"),
+            ];
+            for val in vals {
+                tx.send(val).unwrap();
+                trpl::sleep(Duration::from_millis(500)).await;
+            }
+        };
 
-        for val in vals {
-            tx.send(val).unwrap();
-            trpl::sleep(Duration::from_millis(500)).await;
-        }
+        let rx_fut = async {
+            while let Some(value) = rx.recv().await {
+                println!("received '{value}'");
+            }
+        };
 
-        while let Some(value) = rx.recv().await {
-            println!("received '{value}'");
-        }
+        trpl::join(tx_fut, rx_fut).await;
     });
 }
 
-// listing 17-10
-// reciever awaits messages from a channel and does not exit until the channel is closed
+// listing 17-11
+// Separating send and recv into their own async blocks and awaiting the futures for those blocks
