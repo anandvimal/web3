@@ -9,9 +9,9 @@ fn main() {
 
         let tx1_fut = async move {
             let vals = vec![
-                String::from("hi"),
-                String::from("from"),
-                String::from("the"),
+                String::from("1hi"),
+                String::from("1from"),
+                String::from("1the"),
                 String::from("future"),
             ];
 
@@ -30,10 +30,10 @@ fn main() {
 
         let tx2_fut = async move {
             let vals = vec![
-                String::from("more"),
-                String::from("messages"),
-                String::from("for"),
-                String::from("you"),
+                String::from("2more"),
+                String::from("2messages"),
+                String::from("2for"),
+                String::from("2you"),
             ];
 
             for val in vals {
