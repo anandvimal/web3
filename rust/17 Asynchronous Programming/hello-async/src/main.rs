@@ -1,25 +1,16 @@
 extern crate trpl; // required for mdbook test
 
-use std::time::Duration;
-
 fn main() {
     trpl::run(async {
-        let fut1 = async {
-            for i in 1..10 {
-                println!("hi number {i} from first task!");
-                trpl::sleep(Duration::from_millis(500)).await;
-            }
-        };
+        let (tx, mut rx) = trpl::channel();
 
-        for i in 1..5 {
-            println!("hi number {i} from second task!");
-            trpl::sleep(Duration::from_millis(500)).await;
-        }   
+        let val = String::from("hi");
+        tx.send(val).unwrap();
 
-        //fut2.await;        
-        fut1.await;
+        let received = rx.recv().await.unwrap();
+        println!("received: {}", received);
 
     });
 }
 
-// listing 17-8
+// listing 17-9
