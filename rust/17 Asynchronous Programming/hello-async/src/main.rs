@@ -42,9 +42,10 @@ fn main() {
             }
         };
 
-        trpl::join3(tx1_fut, tx2_fut, rx_fut).await;
+        trpl::join!(tx1_fut, tx2_fut, rx_fut).await;     
     });
 }
 
-// In Listing 17-13, 
+// In Listing 17-14, 
+// Happily, we have a macro form of join to which we can pass an arbitrary number of arguments. 
 // The key is the order in which the futures are awaited, not in which they’re created.
