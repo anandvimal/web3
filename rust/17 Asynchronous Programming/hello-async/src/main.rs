@@ -10,6 +10,7 @@ fn main() {
                 trpl::sleep(Duration::from_millis(500)).await;
             }
         };
+        fut1.await;
 
         let fut2 = async {
             for i in 1..5 {
@@ -17,8 +18,10 @@ fn main() {
                 trpl::sleep(Duration::from_millis(500)).await;
             }   
         };
+        fut2.await;
 
-        trpl::join(fut1, fut2).await;
+        //trpl::join(fut1, fut2).await;
+    
     });
 }
 
