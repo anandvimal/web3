@@ -42,10 +42,12 @@ fn main() {
             }
         };
 
-        let futures = vec![tx1_fut, tx2_fut, rx_fut];
+        let futures = vec![Box::new(tx1_fut), Box::new(tx2_fut), Box::new(rx_fut)];
         trpl::join_all(futures).await;     
     });
 }
 
-// In Listing 17-15, 
-// Storing anonymous futures in a vector and calling join_all on them.
+// Listing 17-16: Using Box::new to align the types of the futures in a Vec
+// Unfortunately, this code still doesn’t compile. 
+// In fact, we get the same basic error we got before for both the second and third Box::new calls, 
+// as well as new errors referring to the Unpin trait. We’ll come back to the Unpin errors in a moment.
