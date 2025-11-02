@@ -42,7 +42,7 @@ fn main() {
             }
         };
 
-        trpl::join!(tx1_fut, tx2_fut, rx_fut).await;     
+        trpl::join!(tx1_fut, tx2_fut, rx_fut);     
     });
 }
 
