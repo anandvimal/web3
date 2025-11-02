@@ -42,10 +42,10 @@ fn main() {
             }
         };
 
-        trpl::join!(tx1_fut, tx2_fut, rx_fut);     
+        let futures = vec![tx1_fut, tx2_fut, rx_fut];
+        trpl::join_all(futures).await;     
     });
 }
 
-// In Listing 17-14, 
-// Happily, we have a macro form of join to which we can pass an arbitrary number of arguments. 
-// The key is the order in which the futures are awaited, not in which they’re created.
+// In Listing 17-15, 
+// Storing anonymous futures in a vector and calling join_all on them.
