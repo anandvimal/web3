@@ -5,49 +5,13 @@ use std::time::Duration;
 
 fn main() {
     trpl::run(async {
-        let (tx1, mut rx) = trpl::channel();
-        let tx2 = tx1.clone();
+        let a = async {1u32};
+        let b = async { "Hello!"};
+        let c = async { true };
 
-        let tx1_fut = pin!(async move {
-            let vals = vec![
-                String::from("1hi"),
-                String::from("1from"),
-                String::from("1the"),
-                String::from("1future"),
-            ];
-
-            for val in vals {
-                tx1.send(val).unwrap();
-                trpl::sleep(Duration::from_secs(1)).await;
-            }
-
-        });
-
-        let rx_fut = pin!(async {
-            while let Some(value) = rx.recv().await {
-                println!("received '{value}'");
-            }
-        });
-
-        let tx2_fut = pin!(async move {
-            let vals = vec![
-                String::from("2more"),
-                String::from("2messages"),
-                String::from("2for"),
-                String::from("2you"),
-            ];
-
-            for val in vals {
-                tx2.send(val).unwrap();
-                trpl::sleep(Duration::from_secs(1)).await;
-            }
-        });
-
-        let futures: Vec<Pin<&mut dyn Future<Output = ()>>> =
-            vec![tx1_fut, tx2_fut, rx_fut];
-        
-        trpl::join_all(futures).await;     
+        let (a_result, b_result, c_result) = trpl::join!(a,b,c);
+        println!("Results: {}, {}, {}", a_result, b_result, c_result);  
     });
 }
 
-// Listing 17-19: Using Pin directly with the pin! macro to avoid unnecessary heap allocations.
+// Listing 17-20: Three futures with distinct types.
