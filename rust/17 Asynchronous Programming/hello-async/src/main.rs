@@ -7,11 +7,11 @@ fn main() {
     trpl::run(async {
 
         let slow = async {
-            trpl::sleep(Duration::from_millis(100)).await;
-            "I finished!"
+            trpl::sleep(Duration::from_secs(5)).await;
+            "Finally finished!"
         };
 
-        match timeout(slow, Duration::from_millis(10)).await {
+        match timeout(slow, Duration::from_secs(2)).await {
             Ok(message) => println!("Succeeded with '{message}'"),
             Err(duration) => {
                 println!("Failed after {} seconds", duration.as_secs())
@@ -20,5 +20,14 @@ fn main() {
     });
 }
 
-// Listing 17-27: Using our imagined timeout to run a slow operation with a time limit.
-// does not compile because timeout is not defined
+async fn timeout<F: Future>(
+    future_to_try: F,
+    max_time: Duration,
+) -> Result<F::Output, Duration> {
+    match trpl::race(future_to_try, trpl::sleep(max_time)).await {
+        trpl::Either::Left(output) => Ok(output),
+        trpl::Either::Right(()) => Err(max_time),
+    }
+}
+
+// Listing 17-29: Defining timeout with race and sleep
