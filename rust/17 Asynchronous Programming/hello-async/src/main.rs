@@ -42,12 +42,12 @@ fn main() {
             }
         };
 
-        let futures = vec![Box::new(tx1_fut), Box::new(tx2_fut), Box::new(rx_fut)];
+        let futures: Vec<Box<dyn Future<Output = ()>>> =
+            vec![Box::new(tx1_fut), Box::new(tx2_fut), Box::new(rx_fut)];
         trpl::join_all(futures).await;     
     });
 }
 
-// Listing 17-16: Using Box::new to align the types of the futures in a Vec
-// Unfortunately, this code still doesn’t compile. 
-// In fact, we get the same basic error we got before for both the second and third Box::new calls, 
-// as well as new errors referring to the Unpin trait. We’ll come back to the Unpin errors in a moment.
+// Listing 17-17: Fixing the rest of the type mismatch errors by using an explicit type declaration
+// We’ll come back to the Unpin errors in a moment. 
+// First, let’s fix the type errors on the Box::new calls by explicitly annotating the type of the futures variable
