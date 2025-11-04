@@ -10,6 +10,7 @@ fn main() {
             slow("a", 30);
             slow("a", 10);
             slow("a", 20);
+            trpl::sleep(Duration::from_millis(50)).await;
             println!("finished a");
         };
 
