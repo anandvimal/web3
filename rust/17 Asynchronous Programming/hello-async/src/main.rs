@@ -1,5 +1,6 @@
 extern crate trpl; // required for mdbook test
 
+use std::pin::Pin;
 use std::time::Duration;
 
 fn main() {
@@ -42,12 +43,11 @@ fn main() {
             }
         };
 
-        let futures: Vec<Box<dyn Future<Output = ()>>> =
-            vec![Box::new(tx1_fut), Box::new(tx2_fut), Box::new(rx_fut)];
+        let futures: Vec<Pin<Box<dyn Future<Output = ()>>>> =
+            vec![Box::pin(tx1_fut), Box::pin(tx2_fut), Box::pin(rx_fut)];
         trpl::join_all(futures).await;     
     });
 }
 
-// Listing 17-17: Fixing the rest of the type mismatch errors by using an explicit type declaration
-// We’ll come back to the Unpin errors in a moment. 
-// First, let’s fix the type errors on the Box::new calls by explicitly annotating the type of the futures variable
+// Listing 17-18: Using Pin and Box::pin to make the Vec type check.
+// Next we update the type annotation for futures, with a Pin wrapping each Box. Finally, we use Box::pin to pin the futures themselves.
