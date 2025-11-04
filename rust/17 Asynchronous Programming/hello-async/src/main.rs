@@ -18,7 +18,7 @@ fn main() {
 
             for val in vals {
                 tx1.send(val).unwrap();
-                trpl::sleep(Duration::from_millis(500)).await;
+                trpl::sleep(Duration::from_secs(1)).await;
             }
 
         });
@@ -39,7 +39,7 @@ fn main() {
 
             for val in vals {
                 tx2.send(val).unwrap();
-                trpl::sleep(Duration::from_millis(1500)).await;
+                trpl::sleep(Duration::from_secs(1)).await;
             }
         });
 
