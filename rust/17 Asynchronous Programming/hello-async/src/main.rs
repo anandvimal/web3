@@ -21,3 +21,4 @@ fn main() {
 }
 
 // Listing 17-27: Using our imagined timeout to run a slow operation with a time limit.
+// does not compile because timeout is not defined
