@@ -8,7 +8,7 @@ fn main() {
         let (tx1, mut rx) = trpl::channel();
         let tx2 = tx1.clone();
 
-        let tx1_fut = async move {
+        let tx1_fut = pin!(async move {
             let vals = vec![
                 String::from("1hi"),
                 String::from("1from"),
@@ -21,15 +21,15 @@ fn main() {
                 trpl::sleep(Duration::from_millis(500)).await;
             }
 
-        };
+        });
 
-        let rx_fut = async {
+        let rx_fut = pin!(async {
             while let Some(value) = rx.recv().await {
                 println!("received '{value}'");
             }
-        };
+        });
 
-        let tx2_fut = async move {
+        let tx2_fut = pin!(async move {
             let vals = vec![
                 String::from("2more"),
                 String::from("2messages"),
@@ -41,7 +41,7 @@ fn main() {
                 tx2.send(val).unwrap();
                 trpl::sleep(Duration::from_millis(1500)).await;
             }
-        };
+        });
 
         let futures: Vec<Pin<Box<dyn Future<Output = ()>>>> =
             vec![Box::pin(tx1_fut), Box::pin(tx2_fut), Box::pin(rx_fut)];
