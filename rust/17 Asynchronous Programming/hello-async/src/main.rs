@@ -1,6 +1,6 @@
 extern crate trpl; // required for mdbook test
 
-use std::pin::Pin;
+use std::pin::{Pin, pin};
 use std::time::Duration;
 
 fn main() {
@@ -13,7 +13,7 @@ fn main() {
                 String::from("1hi"),
                 String::from("1from"),
                 String::from("1the"),
-                String::from("future"),
+                String::from("1future"),
             ];
 
             for val in vals {
@@ -43,11 +43,11 @@ fn main() {
             }
         });
 
-        let futures: Vec<Pin<Box<dyn Future<Output = ()>>>> =
-            vec![Box::pin(tx1_fut), Box::pin(tx2_fut), Box::pin(rx_fut)];
+        let futures: Vec<Pin<&mut dyn Future<Output = ()>>> =
+            vec![tx1_fut, tx2_fut, rx_fut];
+        
         trpl::join_all(futures).await;     
     });
 }
 
-// Listing 17-18: Using Pin and Box::pin to make the Vec type check.
-// Next we update the type annotation for futures, with a Pin wrapping each Box. Finally, we use Box::pin to pin the futures themselves.
+// Listing 17-19: Using Pin directly with the pin! macro to avoid unnecessary heap allocations.
