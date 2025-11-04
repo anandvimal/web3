@@ -6,37 +6,18 @@ use std::{thread, time::Duration};
 fn main() {
     trpl::run(async {
 
-        let a = async {
-            println!("starting a");
-            slow("a", 30);
-            trpl::yield_now().await;
-            slow("a", 10);
-            trpl::yield_now().await;
-            slow("a", 20);
-            trpl::yield_now().await;
-            println!("finished a");
+        let slow = async {
+            trpl::sleep(Duration::from_millis(100)).await;
+            "I finished!"
         };
 
-        let b = async {
-            println!("starting b");
-            slow("b", 75);
-            trpl::yield_now().await;
-            slow("b", 10);
-            trpl::yield_now().await;
-            slow("b", 15);
-            trpl::yield_now().await;
-            slow("b", 350);
-            trpl::yield_now().await;
-            println!("finished b");
-        };
-
-        trpl::race(a, b).await;
+        match timeout(slow, Duration::from_millis(10)).await {
+            Ok(message) => println!("Succeeded with '{message}'"),
+            Err(duration) => {
+                println!("Failed after {} seconds", duration.as_secs())
+            }
+        }
     });
 }
 
-fn slow(name: &str, ms: u64) {
-    thread::sleep(Duration::from_millis(ms));
-    println!("{name} ran for {ms} ms");
-}
-
-// Listing 17-25: Using yield_now to let operations switch off making progress
+// Listing 17-27: Using our imagined timeout to run a slow operation with a time limit.
