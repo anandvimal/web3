@@ -1,4 +1,5 @@
 extern crate trpl; // required for mdbook test
+use trpl::StreamExt;
 
 fn main() {
     trpl::run(async {
@@ -13,5 +14,4 @@ fn main() {
 }
 
 
-// Listing 17-30: Creating a stream from an iterator and printing its values
-// does not compile
+// Listing 17-31: Successfully using an iterator as the basis for a stream
