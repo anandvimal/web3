@@ -1,12 +1,17 @@
 extern crate trpl; // required for mdbook test
+
+use std::{pin::pin, time::Duration};
 use trpl::{StreamExt, Stream, ReceiverStream};
 
 fn main() {
     trpl::run(async {
-        let mut messages = get_messages();
+        let mut messages = pin!(get_messages().timeout(Duration::from_millis(200)));
 
-        while let Some(message) = messages.next().await {
-            println!("{message}");
+        while let Some(result) = messages.next().await {
+            match result {
+                Ok(message) => println!("Received: {message}"),
+                Err(reason) => eprintln!("Program : {reason:?}"),
+            }
         }
     });
 }
@@ -22,4 +27,4 @@ fn get_messages() -> impl Stream<Item = String> {
     ReceiverStream::new(rx)
 }
 
-// Listing 17-33: Using the rx receiver as a ReceiverStream
+// Listing 17-34: Using the StreamExt::timeout method to set a time limit on the items in a stream
