@@ -5,9 +5,12 @@ use trpl::{StreamExt, Stream, ReceiverStream};
 
 fn main() {
     trpl::run(async {
-        let mut messages = pin!(get_messages().timeout(Duration::from_millis(200)));
+        let messages = get_messages().timeout(Duration::from_millis(200));
+        let intervals = get_intervals();
+        let merged = messages.merge(intervals);
+        let mut stream = pin!(merged);
 
-        while let Some(result) = messages.next().await {
+        while let Some(result) = merged.next().await {
             match result {
                 Ok(message) => println!("Message: {message}"),
                 Err(reason) => eprintln!("Problem : {reason:?}"),
@@ -48,4 +51,5 @@ fn get_intervals() -> impl Stream<Item = u32> {
     ReceiverStream::new(rx)
 }
 
-// Listing 17-36: Creating a stream with a counter that will be emitted once every millisecond
+// Listing 17-37: Attempting to merge the messages and intervals streams
+// does not compile.
