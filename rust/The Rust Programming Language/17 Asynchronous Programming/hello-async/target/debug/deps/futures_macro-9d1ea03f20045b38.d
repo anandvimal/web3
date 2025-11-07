@@ -1,0 +1,9 @@
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/futures_macro-9d1ea03f20045b38.d: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/executor.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/join.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/select.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/stream_select.rs
+
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/libfutures_macro-9d1ea03f20045b38.so: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/executor.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/join.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/select.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/stream_select.rs
+
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/lib.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/executor.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/join.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/select.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-macro-0.3.31/src/stream_select.rs:

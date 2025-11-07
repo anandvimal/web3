@@ -1,0 +1,1 @@
+/home/pumpkin/Documents/GitHub/web3/rust/IO\ cmdline\ program/minigrep/target/debug/minigrep: /home/pumpkin/Documents/GitHub/web3/rust/IO\ cmdline\ program/minigrep/src/lib.rs /home/pumpkin/Documents/GitHub/web3/rust/IO\ cmdline\ program/minigrep/src/main.rs

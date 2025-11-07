@@ -1,0 +1,10 @@
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/derive_more-999ffbd917a7b7f8.d: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/syn_compat.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/utils.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_assign_like.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_helpers.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_like.rs
+
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/libderive_more-999ffbd917a7b7f8.so: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/syn_compat.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/utils.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_assign_like.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_helpers.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_like.rs
+
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/lib.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/syn_compat.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/utils.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_assign_like.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_helpers.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive_more-0.99.20/src/add_like.rs:

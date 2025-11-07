@@ -1,0 +1,10 @@
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/version_check-5f97cbb3a52ef663.d: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/version.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/channel.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/date.rs
+
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/libversion_check-5f97cbb3a52ef663.rlib: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/version.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/channel.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/date.rs
+
+/home/pumpkin/Documents/GitHub/web3/rust/17 Asynchronous Programming/hello-async/target/debug/deps/libversion_check-5f97cbb3a52ef663.rmeta: /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/lib.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/version.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/channel.rs /home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/date.rs
+
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/lib.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/version.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/channel.rs:
+/home/pumpkin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/version_check-0.9.5/src/date.rs:
