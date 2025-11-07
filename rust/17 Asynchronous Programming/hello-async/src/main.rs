@@ -6,11 +6,13 @@ use trpl::{StreamExt, Stream, ReceiverStream};
 fn main() {
     trpl::run(async {
         let messages = get_messages().timeout(Duration::from_millis(200));
-        let intervals = get_intervals();
+        let intervals = get_intervals()
+            .map(|count| format!("Interval: {count}"))
+            .timeout(Duration::from_secs(10));
         let merged = messages.merge(intervals);
         let mut stream = pin!(merged);
 
-        while let Some(result) = merged.next().await {
+        while let Some(result) = stream.next().await {
             match result {
                 Ok(message) => println!("Message: {message}"),
                 Err(reason) => eprintln!("Problem : {reason:?}"),
@@ -51,5 +53,5 @@ fn get_intervals() -> impl Stream<Item = u32> {
     ReceiverStream::new(rx)
 }
 
-// Listing 17-37: Attempting to merge the messages and intervals streams
+// Listing 17-38: Aligning the type of the the intervals stream with the type of the messages stream
 // does not compile.
