@@ -8,8 +8,9 @@ fn main() {
         let messages = get_messages().timeout(Duration::from_millis(200));
         let intervals = get_intervals()
             .map(|count| format!("Interval: {count}"))
+            .throttle(Duration::from_millis(100))
             .timeout(Duration::from_secs(10));
-        let merged = messages.merge(intervals);
+        let merged = messages.merge(intervals).take(20);
         let mut stream = pin!(merged);
 
         while let Some(result) = stream.next().await {
@@ -53,5 +54,5 @@ fn get_intervals() -> impl Stream<Item = u32> {
     ReceiverStream::new(rx)
 }
 
-// Listing 17-38: Aligning the type of the the intervals stream with the type of the messages stream
+// Listing 17-39: Using throttle and take to manage the merged streams
 // does not compile.
