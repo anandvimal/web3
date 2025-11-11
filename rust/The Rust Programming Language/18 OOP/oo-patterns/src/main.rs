@@ -15,3 +15,5 @@ impl Draw for SelectBox{
 fn main (){
     // code
 }
+
+// Listing 18-8: Another crate using gui and implementing the Draw trait on a SelectBox struct

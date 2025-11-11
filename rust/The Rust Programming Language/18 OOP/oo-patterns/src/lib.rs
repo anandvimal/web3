@@ -26,8 +26,6 @@ impl Draw for Button {
     }
 }
 
-// Listing 18-7: A Button struct that implements the Draw trait
-
 #[cfg(test)]
 mod tests {
     use super::*;
