@@ -12,8 +12,29 @@ impl Draw for SelectBox{
     }
 }
 
+use gui::{Button, Screen}
+
 fn main (){
-    // code
+    let screen = Screen {
+        components: vec![
+            Box::new(SelectBox {
+                width: 75,
+                height: 10,
+                options: vec![
+                    String::from("Yes"),
+                    String::from("Maybe"),
+                    String::from("No"),
+                ],
+            }),
+            Box::new(Button{
+                width: 50,
+                height: 10,
+                label: String::from("OK"),
+            }),
+        ],
+    };
+
+    screen.run();
 }
 
-// Listing 18-8: Another crate using gui and implementing the Draw trait on a SelectBox struct
+// Listing 18-9: Using trait objects to store values of different types that implement the same trait
