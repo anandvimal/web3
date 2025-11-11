@@ -2,24 +2,26 @@ pub trait Draw {
     fn draw(&self);
 }
 
-pub struct Screen {
-    pub components: Vec<Box<dyn Draw>>,
+pub struct Screen<T: Draw> {
+    pub components: Vec<T>,
 }
 
-impl Screen{
-    pub fn run(&self){
+impl<T> Screen<T>
+where
+    T:Draw,
+{
+    pub fn run(&self) {
         for component in self.components.iter() {
-            components.draw();
+            component.draw();
         }
     }
 }
-// Listing 18-5: A run method on Screen that calls the draw method on each component
 
+// Listing 18-6: An alternate implementation of the Screen struct and its run method using generics and trait bounds
 
 #[cfg(test)]
 mod tests {
     use super::*;
-
 
 }
 
