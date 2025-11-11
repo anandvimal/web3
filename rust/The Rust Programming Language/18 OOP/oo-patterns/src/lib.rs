@@ -5,7 +5,15 @@ pub trait Draw {
 pub struct Screen {
     pub components: Vec<Box<dyn Draw>>,
 }
-// Listing 18-4: Definition of the Screen struct with a components field holding a vector of trait objects that implement the Draw trait
+
+impl Screen{
+    pub fn run(&self){
+        for component in self.components.iter() {
+            components.draw();
+        }
+    }
+}
+// Listing 18-5: A run method on Screen that calls the draw method on each component
 
 
 #[cfg(test)]
