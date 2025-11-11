@@ -29,8 +29,12 @@ impl AveragedCollection{
         let total: i32 = self.list.iter().sum();
         self.average = total as f64 / self.list.len() as f64;
     }
-
 }
+
+pub trait Draw {
+    fn draw(&self);
+}
+// Listing 18-3: Definition of the Draw trait
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -48,4 +52,4 @@ mod tests {
 }
 
 
-// Listing 18-2: Implementations of the public methods add, remove, and average on AveragedCollection.
+
