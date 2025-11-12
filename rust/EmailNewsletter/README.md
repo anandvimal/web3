@@ -1,3 +1,7 @@
 ZERO TO PRODUCTION IN RUST
 
-cargo install cargo-watch
+- cargo install cargo-watch
+
+- cargo watch -x check
+
+will run cargo check after every code change
