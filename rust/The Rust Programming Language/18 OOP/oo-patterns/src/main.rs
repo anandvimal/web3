@@ -1,40 +1,16 @@
-use gui::Draw;
+use blog::Post;
 
-struct SelectBox{
-    width: u32,
-    height: u32,
-    options: Vec<String>,
+fn main() {
+    let mut post = Post::new();
+
+    post.add_text("I ate a salad for lunch today");
+    assert_eq!("", post.content());
+
+    post.request_review();
+    assert_eq!("", post.content());
+
+    post.approve();
+    assert_eq!("I ate a salad for lunch today", post.content());
 }
 
-impl Draw for SelectBox{
-    fn draw(&self) {
-        // code to actually draw a select box
-    }
-}
-
-use gui::{Button, Screen}
-
-fn main (){
-    let screen = Screen {
-        components: vec![
-            Box::new(SelectBox {
-                width: 75,
-                height: 10,
-                options: vec![
-                    String::from("Yes"),
-                    String::from("Maybe"),
-                    String::from("No"),
-                ],
-            }),
-            Box::new(Button{
-                width: 50,
-                height: 10,
-                label: String::from("OK"),
-            }),
-        ],
-    };
-
-    screen.run();
-}
-
-// Listing 18-9: Using trait objects to store values of different types that implement the same trait
+// Listing 18-11: Code that demonstrates the desired behavior we want our blog crate to have
