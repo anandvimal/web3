@@ -19,15 +19,35 @@ impl Post {
     pub fn content(&self) -> &str {
         ""
     }
+
+    pub fn request_review(&mut self){
+        if let Some(s) = self.state.take() {
+            self.state = Some(s.request_review())
+        }
+    }
 }
 
-trait State {}
+trait State {
+    fn request_review(self: Box<Self>) -> Box<dyn State>;
+}
 
 struct Draft {}
 
-impl State for Draft {}
+impl State for Draft {
+    fn request_review(self: Box<Self>) -> Box<dyn State> {
+        Box::new(PendingReview {})
+    }
+}
 
-// Listing 18-14: Adding a placeholder implementation for the content method on Post that always returns an empty string slice
+struct PendingReview {}
+
+impl State for PendingReview{
+    fn request_review(self: Box<Self>) -> Box<dyn State> {
+        self
+    }
+}
+
+// Listing 18-15: Implementing request_review methods on Post and the State trait
 
 #[cfg(test)]
 mod tests {
