@@ -15,7 +15,10 @@ impl Post {
     pub fn add_text(&mut self, text: &str) {
         self.content.push_str(text);
     }
-    
+
+    pub fn content(&self) -> &str {
+        ""
+    }
 }
 
 trait State {}
@@ -24,7 +27,7 @@ struct Draft {}
 
 impl State for Draft {}
 
-// Listing 18-13: Implementing the add_text method to add text to a post’s content
+// Listing 18-14: Adding a placeholder implementation for the content method on Post that always returns an empty string slice
 
 #[cfg(test)]
 mod tests {
