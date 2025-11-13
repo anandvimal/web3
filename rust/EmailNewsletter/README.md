@@ -10,3 +10,6 @@ will run cargo check after every code change
 
 check, test and run.
 
+- curl -v http://127.0.0.1:8000/health_check
+
+test first end point after cargo run with this command.
