@@ -9,6 +9,11 @@ edition = "2024"
 name = "zero2prod"
 path = "src/lib.rs"
 
+[[bin]]
+name = "zero2prod"
+path = "src/main.rs"
+
+
 [dependencies]
 actix-web = "4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
