@@ -4,7 +4,10 @@ version = "0.1.0"
 authors = ["anandvimal <deepak.sandhu789@gmail.com>"]
 edition = "2024"
 
-
+[lib]
+# if unspecified (name), cargo will default 'package.name', as the library name.
+name = "zero2prod"
+path = "src/lib.rs"
 
 [dependencies]
 actix-web = "4"
