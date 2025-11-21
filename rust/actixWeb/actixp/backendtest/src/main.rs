@@ -1,29 +1,28 @@
-use actix_web::{App, HttpResponse, HttpServer, Responder, get, post, web};
+use actix_web::{App, HttpServer, get, web};
 
-async fn index() -> impl Responder {
-    "Hello World!!"
+// This struct represents state.
+struct AppState {
+    app_name: String,
 }
 
 #[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
-
-#[post("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    HttpResponse::Ok().body(req_body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
+async fn index(data: web::Data<AppState>) -> String {
+    let app_name = &data.app_name; // <- get app_name
+    format!("Hello, {app_name}!") // <- response with app_name
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
-        App::new().service(web::scope("app").route("/index.html", web::get().to(index)))
+        App::new()
+            .app_data(web::Data::new(AppState {
+                app_name: String::from("Actix We"),
+            }))
+            .service(index)
     })
     .bind(("127.0.0.1", 8080))?
     .run()
     .await
 }
+
+// https://actix.rs/docs/application#state
