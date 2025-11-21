@@ -5,3 +5,7 @@ version = 4
 [[package]]
 name = "backendtest"
 version = "0.1.0"
+
+[dependencies]
+actix-web = "4"
+]
