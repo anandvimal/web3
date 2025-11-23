@@ -1,4 +1,5 @@
 use actix_web::{App, HttpServer, web};
+use std::sync::Mutex;
 
 struct AppStateWithCounter {
     counter: Mutex<i32>, // <- mutex is necessary to mutate safely across threads
