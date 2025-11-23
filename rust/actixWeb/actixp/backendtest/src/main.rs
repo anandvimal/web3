@@ -28,3 +28,5 @@ async fn main() -> std::io::Result<()> {
     .run()
     .await
 }
+
+// https://actix.rs/docs/application#shared-mutable-state
