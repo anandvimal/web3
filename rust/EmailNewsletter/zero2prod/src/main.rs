@@ -8,6 +8,7 @@ async fn greet(req: HttpRequest) -> impl Responder {
 async fn health_check(req: HttpRequest) -> impl Responder {
     HttpResponse::Ok()
 }
+// curl -v http://127.0.0.1:8000/health_check
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
