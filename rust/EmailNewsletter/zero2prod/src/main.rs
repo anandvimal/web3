@@ -1,4 +1,4 @@
-use actix_web::{App, HttpRequest, HttpServer, Responder, web};
+use actix_web::{App, HttpRequest, HttpResponse, HttpServer, Responder, web};
 
 async fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
@@ -6,7 +6,7 @@ async fn greet(req: HttpRequest) -> impl Responder {
 }
 
 async fn health_check(req: HttpRequest) -> impl Responder {
-    HttpRequest::Ok()
+    HttpResponse::Ok()
 }
 
 #[tokio::main]
