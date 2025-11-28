@@ -6,7 +6,7 @@ async fn greet(req: HttpRequest) -> impl Responder {
 }
 
 async fn health_check(req: HttpRequest) -> impl Responder {
-    todo!()
+    HttpRequest::Ok.finish()
 }
 
 #[tokio::main]
